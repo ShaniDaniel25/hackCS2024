@@ -1,28 +1,23 @@
-// App.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MainPage from './screens/MainPage';
+import { createStackNavigator } from '@react-navigation/stack';
 import RedButtonScreen from './screens/RedButtonScreen';
-import MapScreen from './screens/MapScreen';
 import ToolsScreen from './screens/ToolsScreen';
+import LoginScreen from './screens/LoginScreen';
+import MoreInfoScreen from './screens/MoreInfoScreen';
 
-const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-
-const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="SOS" component={RedButtonScreen} />
-    <Tab.Screen name="Map" component={MapScreen} />
-  </Tab.Navigator>
-);
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Tabs">
-        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
-        <Stack.Screen name="Tools" component={ToolsScreen} />
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="MoreInfo" component={MoreInfoScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="MainPage" component={MainPage} options={{ headerShown: false }} />
+        <Stack.Screen name="RedButton" component={RedButtonScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Tools" component={ToolsScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
