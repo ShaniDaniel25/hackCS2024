@@ -1,6 +1,8 @@
+// screens/RedButtonScreen.js
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import commonStyles from './commonStyles';
 
 const RedButtonScreen = () => {
   const navigation = useNavigation();
@@ -18,33 +20,23 @@ const RedButtonScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.sosButton} onPress={showAlert}>
-        <Text style={styles.sosButtonText}>SOS</Text>
+    <SafeAreaView style={commonStyles.container}>
+      <TouchableOpacity style={[commonStyles.button, styles.sosButton]} onPress={showAlert}>
+        <Text style={[commonStyles.buttonText, styles.sosButtonText]}>SOS</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
   sosButton: {
     width: 200,
     height: 200,
     backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
     borderRadius: 100,
   },
   sosButtonText: {
-    color: 'white',
     fontSize: 24,
-    fontWeight: 'bold',
   },
 });
 
