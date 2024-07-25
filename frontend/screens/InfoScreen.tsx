@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ddd',
   },
   backButton: {
-    backgroundColor: '#388E3C', // Slightly darker green for the button
+    backgroundColor: '#93B9BD', // Slightly darker green for the button
     borderRadius: 50,
     padding: 10,
     marginRight: 10, // Space between button and subheader
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   subheader: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#388E3C',
+    color: '#93B9BD',
     flex: 1,
     textAlign: 'center',
   },

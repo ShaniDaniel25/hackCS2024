@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 import InfoScreen from './InfoScreen'; // Import the InfoScreen component
 
 // Define the type for a group
@@ -20,6 +21,8 @@ const groups: Group[] = [
 ];
 
 const MainPage: React.FC = () => {
+  const navigation = useNavigation();
+
   const showSOSAlert = () => {
     Alert.alert(
       'Are you sure?',
@@ -32,13 +35,14 @@ const MainPage: React.FC = () => {
         },
         {
           text: 'Yes',
-          onPress: () => console.log('SOS Activated'),
+          onPress: () => navigation.navigate('Tools'),
           style: 'destructive',
         },
       ],
       { cancelable: false }
     );
   };
+
 
   const [showInfoScreen, setShowInfoScreen] = useState(false);
 
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
   headlineContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#55B55C', // New green color
+    backgroundColor: '#93B9BD', // New green color
     padding: 10,
     marginBottom: 10,
     marginTop: 50, // Adjust this value to move the background lower
