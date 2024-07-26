@@ -10,18 +10,27 @@
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
+    },"plugins": [
+      [
+        "expo-asset",
+        {
+          "assets": ["../assets/alarm.mp3"]
+        }
+      ]],
+      "ios": {
+        "infoPlist": {
+          "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
+        }
+      },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      }, 
+      "permissions": ["CAMERA", "FLASHLIGHT"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     }
   }
-}
+}   
