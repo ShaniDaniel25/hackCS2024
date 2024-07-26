@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native'; // Import the hook
 
 const ToolsScreen: React.FC = () => {
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
+  const navigation = useNavigation(); // Use the hook to access the navigation object
   const [isTorchOn, setIsTorchOn] = useState(false);
   const [hasCameraPermission, setHasCameraPermission] = useState(false);
   const [sound, setSound] = useState<Audio.Sound | null>(null);
