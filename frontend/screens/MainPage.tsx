@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity, Alert } from 'react
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import InfoScreen from './InfoScreen'; // Import the InfoScreen component
+import MapScreen from './MapScreen';
 
 // Define the type for a group
 interface Group {
@@ -45,9 +46,13 @@ const MainPage: React.FC = () => {
 
 
   const [showInfoScreen, setShowInfoScreen] = useState(false);
+  const [showMapScreen, setShowMapScreen] = useState(false);
 
   if (showInfoScreen) {
     return <InfoScreen onGoBack={() => setShowInfoScreen(false)} />;
+  }
+  if (showMapScreen) {
+    return <MapScreen onGoBack={() => setShowMapScreen(false)} />;
   }
 
   return (
@@ -81,7 +86,7 @@ const MainPage: React.FC = () => {
       />
       <View style={styles.toolbar}>
         <View style={styles.leftToolbarButtonGroup}>
-          <TouchableOpacity style={styles.toolbarButton}>
+          <TouchableOpacity style={styles.toolbarButton} onPress={() => setShowMapScreen(true)}>
             <View style={styles.mapContainer}>
               <Icon name="map" size={25} color="#4CAF50" />
               <Text style={styles.toolbarButtonText}>Map</Text>
@@ -120,7 +125,7 @@ const styles = StyleSheet.create({
     borderRadius: 20, // Rounded corners
   },
   headline: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#fff',
     flex: 1, // Take up all available space
